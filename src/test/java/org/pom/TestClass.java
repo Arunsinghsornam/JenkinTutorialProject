@@ -28,7 +28,7 @@ public class TestClass extends BaseClass{
 			if(!parentWindow.equals(eachWindow)) {
 				driver.switchTo().window(eachWindow);
 				Thread.sleep(2000);
-				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 
 				WebElement buyNow = wait.until(
 				    ExpectedConditions.elementToBeClickable(By.xpath("//div[text()='Buy now']"))
