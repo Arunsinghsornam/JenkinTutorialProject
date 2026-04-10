@@ -59,16 +59,31 @@ public class BaseClass {
 
 		}
 
-		public  WebDriver LaunchChromeBrowser() {
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
-//			ChromeOptions options = new ChromeOptions();
-//			options.addArguments("force-device-scale-factor=0.8");
-//			options.addArguments("high-dpi-support=0.8");
-//			driver = new ChromeDriver(options);
-			driver.manage().window().maximize();
-			return driver;
-	}
+	    public WebDriver LaunchChromeBrowser() {
+
+	        WebDriverManager.chromedriver().setup();
+
+	        ChromeOptions options = new ChromeOptions();
+
+	        // Read from system property (Jenkins will pass this)
+	        String headless = System.getProperty("headless");
+
+	        if ("true".equalsIgnoreCase(headless)) {
+	            options.addArguments("--headless=new");
+	            options.addArguments("--disable-gpu");
+	            options.addArguments("--window-size=1920,1080");
+	        }
+
+	        // Optional (your scaling settings)
+	        options.addArguments("force-device-scale-factor=0.9");
+	        options.addArguments("high-dpi-support=0.9");
+
+	        driver = new ChromeDriver(options);
+
+	        driver.manage().window().maximize();
+
+	        return driver;
+	    }
 
 		public void waitUntilLoadingScreenDisappears() {
 	    	try {
