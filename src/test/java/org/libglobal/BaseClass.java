@@ -61,26 +61,19 @@ public class BaseClass {
 
 	    public WebDriver LaunchChromeBrowser() {
 
-	        WebDriverManager.chromedriver().setup();
-
 	        ChromeOptions options = new ChromeOptions();
 
-	        // Read from system property (Jenkins will pass this)
-	        String headless = System.getProperty("headless");
+	        options.addArguments("--headless=new");
+	        options.addArguments("--disable-gpu");
+	        options.addArguments("--window-size=1920,1080");
 
-	        if ("true".equalsIgnoreCase(headless)) {
-	            options.addArguments("--headless=new");
-	            options.addArguments("--disable-gpu");
-	            options.addArguments("--window-size=1920,1080");
-	        }
-
-	        // Optional (your scaling settings)
 	        options.addArguments("force-device-scale-factor=0.9");
 	        options.addArguments("high-dpi-support=0.9");
 
-	        driver = new ChromeDriver(options);
+	       
+	        WebDriverManager.chromedriver().clearDriverCache().setup();
 
-	        driver.manage().window().maximize();
+	        driver = new ChromeDriver(options);
 
 	        return driver;
 	    }
