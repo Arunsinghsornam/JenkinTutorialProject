@@ -25,6 +25,7 @@ public class TestClass extends BaseClass{
 				driver.switchTo().window(eachWindow);
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("//div[text()='Buy now']")).click();
+				System.out.println("Arun singh");
 			}
 			
 		}
