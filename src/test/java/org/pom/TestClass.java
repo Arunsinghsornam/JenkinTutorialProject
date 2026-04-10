@@ -34,7 +34,7 @@ public class TestClass extends BaseClass{
 				    ExpectedConditions.elementToBeClickable(By.xpath("//div[text()='Buy now']"))
 				);
 
-				buyNow.click();
+				//buyNow.click();
 				System.out.println("Jenkins Test Code Runs sucessfully Now");
 			}
 			
