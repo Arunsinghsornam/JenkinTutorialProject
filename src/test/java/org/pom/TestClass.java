@@ -1,9 +1,13 @@
 package org.pom;
+import java.time.Duration;
 import java.util.Set;
 
 import org.libglobal.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class TestClass extends BaseClass{
@@ -24,8 +28,14 @@ public class TestClass extends BaseClass{
 			if(!parentWindow.equals(eachWindow)) {
 				driver.switchTo().window(eachWindow);
 				Thread.sleep(2000);
-				driver.findElement(By.xpath("//div[text()='Buy now']")).click();
-				System.out.println("Arun singh");
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+				WebElement buyNow = wait.until(
+				    ExpectedConditions.elementToBeClickable(By.xpath("//div[text()='Buy now']"))
+				);
+
+				buyNow.click();
+				System.out.println("Jenkins Test Code Runs sucessfully Now");
 			}
 			
 		}
