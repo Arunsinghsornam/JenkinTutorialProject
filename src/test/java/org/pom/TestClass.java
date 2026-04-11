@@ -36,6 +36,8 @@ public class TestClass extends BaseClass{
 
 				//buyNow.click();
 				System.out.println("Jenkins Test Code Runs sucessfully Now");
+				System.out.println("Jenkins Pipeline Testing on Going to test");
+				
 			}
 			
 		}
