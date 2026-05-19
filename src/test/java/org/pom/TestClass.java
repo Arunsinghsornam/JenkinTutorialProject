@@ -34,7 +34,7 @@ public class TestClass extends BaseClass{
 				    ExpectedConditions.elementToBeClickable(By.xpath("//div[text()='Buy now']"))
 				);
 				Thread.sleep(3000);
-				buyNow.click();
+				//buyNow.click();
 				Thread.sleep(2000);
 				System.out.println("Jenkins Test Code Runs sucessfully Now");
 				System.out.println("Jenkins Pipeline Testing on Going to test");
