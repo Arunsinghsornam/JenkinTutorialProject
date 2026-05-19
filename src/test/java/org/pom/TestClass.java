@@ -20,7 +20,7 @@ public class TestClass extends BaseClass{
 		driver.findElement(By.xpath("//span[@role='button']")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.name("q")).sendKeys("Iphone",Keys.ENTER);
-		driver.findElement(By.xpath("//div[text()='Apple iPhone 16 Pro Max (Natural Titanium, 256 GB)']")).click();
+		driver.findElement(By.xpath("//div[text()='Apple iPhone 17 (Black, 256 GB)']")).click();
 		String parentWindow = driver.getWindowHandle();
 		Set<String> allWindow = driver.getWindowHandles();
 		
@@ -33,8 +33,9 @@ public class TestClass extends BaseClass{
 				WebElement buyNow = wait.until(
 				    ExpectedConditions.elementToBeClickable(By.xpath("//div[text()='Buy now']"))
 				);
-
-				//buyNow.click();
+				Thread.sleep(3000);
+				buyNow.click();
+				Thread.sleep(2000);
 				System.out.println("Jenkins Test Code Runs sucessfully Now");
 				System.out.println("Jenkins Pipeline Testing on Going to test");
 				System.out.println("Jenkins Pipeline 1st Stage sucessfully runs");

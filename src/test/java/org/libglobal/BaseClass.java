@@ -63,18 +63,18 @@ public class BaseClass {
 
 	        ChromeOptions options = new ChromeOptions();
 
-	        options.addArguments("--headless=new");
-	        options.addArguments("--disable-gpu");
-	        options.addArguments("--window-size=1920,1080");
-
-	        options.addArguments("force-device-scale-factor=0.9");
-	        options.addArguments("high-dpi-support=0.9");
+//	        options.addArguments("--headless=new");
+//	        options.addArguments("--disable-gpu");
+//	        options.addArguments("--window-size=1920,1080");
+//
+//	        options.addArguments("force-device-scale-factor=0.9");
+//	        options.addArguments("high-dpi-support=0.9");
 
 	       
 	        WebDriverManager.chromedriver().clearDriverCache().setup();
 
 	        driver = new ChromeDriver(options);
-
+driver.manage().window().maximize();
 	        return driver;
 	    }
 
